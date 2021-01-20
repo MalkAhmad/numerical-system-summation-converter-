@@ -1,0 +1,201 @@
+#include <iostream>
+#include <bitset>
+
+using namespace std;
+void DecimalConversion(long long DecNum)
+{
+	// output the number in the different systems 
+	cout << "The number in the octal system is : " << oct << DecNum << '\a' << endl;         // output in octal system  
+	cout << "The number in the hexadecimal system is : " << hex << DecNum << endl;           //output in hexadecimal system 
+	cout << "The number in the binary  system is : " << bitset<8>(DecNum) << endl;         // output in binary system 
+}
+
+void octalConversion(long long OctalNum)
+{
+	// output the number in the different systems 
+	cout << "The number in the decimal system is : " << dec << OctalNum << '\a' << endl;         // output in decimal system  
+	cout << "The number in the hexadecimal system is : " << hex << OctalNum << endl;           //output in hexadecimal system 
+	cout << "The number in the binary  system is : " << bitset<8>(OctalNum) << endl;         // output in binary system 
+
+}
+
+void hexadecimalconversion(long long HexaNum)
+{								   // output the number in the different type of systems 
+	cout << "The number in the decimal system is : " << dec << HexaNum << '\a' << endl;         // output in decimal system  
+	cout << "The number in the octal  system is : " << oct << HexaNum << endl;           //output in octal system 
+	cout << "The number in the binary  system is : " << bitset<8>(HexaNum) << endl;         // output in binary system 
+}
+
+int convertToBinary(std::string str_num) {
+	int binary;
+	binary = (int)std::bitset<64>(str_num).to_ulong();
+	return binary;
+}
+
+// function of conversion  process
+void conversion()
+{
+					// menu to the user to choose the type of conversion
+	cout << " 1=decimal  2=binary  3=oct 4=hex \n";
+				// choice is variable  to choose the system  
+	int choice;
+	cin >> choice;
+					//the binary number that will be converted
+	string myBinaryNum;
+					//the octal number  that will be converted
+	long long OctalNum1;
+					// the hexadecimal number that will be converted 
+	long long HexaNum;
+					// thedecimal number that will be converted 
+	long long DecNum;
+	int result;
+	switch (choice) {		
+				// user choose  decimal 
+	case 1:
+		try  {
+		cout << "Enter the decimal number : ";
+		cin >> DecNum;
+		DecimalConversion(DecNum);
+	}
+	catch (...) {
+		cerr << "Make sure you are entering a Decimal number" << std::endl;
+	}
+		break;
+				// user choose binary 
+	case 2:
+		try {
+
+		cout << "enter the binary number : ";
+		cin >> myBinaryNum;
+		result = convertToBinary(myBinaryNum);
+		cout << "The Hex conversion of your number is: " << hex << result << '\a' << endl;
+		cout << "The Dec conversion of your number is: " << dec << result << endl;
+		cout << "The octal conversion of your number is: " << oct << result << endl;
+	}
+	catch (...) {
+		cerr << "Make sure you are entering a binary number" << std::endl;
+	}
+		break;
+				// user choose octal 
+	case 3:
+		try { 
+		cout << "Enter the octal  number : ";
+		cin >> oct >> OctalNum1;
+		octalConversion(OctalNum1);
+}
+catch (...) {
+	cerr << "Make sure you are entering a octal number" << std::endl;
+}
+		break;
+				// user choose hexadecimal  
+	case 4:
+		try {
+		cout << "Enter the hexadecimal number : ";
+		cin >> hex >> HexaNum;
+		hexadecimalconversion(HexaNum);
+		}
+		catch (...) {
+			cerr << "Make sure you are entering a hexa Decimal number" << std::endl;
+		}
+		break ;
+	}
+	// the conversion process  is not in our program  until we make sure from the doctor 
+}
+
+// function of calculation process
+void calulation() 
+{				// menu to the user to choose the  numbring system of the  summation 
+	cout << "choose ur system \n" << "1=dec\n" << "2=oct\n" << "3=hexa\n" << "4=binary\n";
+				// enter the type of the system according to its number in the menu
+	int system;
+	cin >> system;
+					// switch statment to choose between the numbring system to sum 
+	switch (system) {
+	case 1:		  //adding decimal numbers 
+		try {
+		int firstdecnumber, seconddecnumber;	 // i put it her to save space in the memory as  it will be used only if   the condition is correct  
+		cout << "enter the  first decimal  number \n";
+		cin >> firstdecnumber;                   // enter first number in decimal 
+		cout << "enter the second decimal  numbe r\n";       // enter second  number in decimal  
+		cin >> seconddecnumber;
+		cout << " there sum equal : " << firstdecnumber + seconddecnumber << '\a' << endl;  // print the sum in decimal 
+	}
+	catch (...) {
+		cerr << "Make sure you are entering  decimal number " << endl;
+	}
+		break;
+	case 2:				 // adding octal number
+		try {
+		int firstoctalnumber, secondoctalnumber; // i put it her to save space in the memory as  it will be used only if   the condition is correct
+		cout << " enter the first octal number :  ";
+		cin >> oct >> firstoctalnumber;
+		cout << " enter the second octal number :  ";
+		cin >> oct >> secondoctalnumber;
+		cout << "there sum equal :  " << oct << firstoctalnumber + secondoctalnumber << '\a' << endl;    // need work (/*means it may be apart of the code */
+	}
+	catch (...) {
+		cerr << "Make sure you are entering octal number " << endl;
+	}
+		break;
+	case 3:			  // adding hexadecimal number 
+		try {
+		int firsthexnumber, secondhexnumber;   // i put it her to save space in the memory as  it will be used only if   the condition is correct
+		cout << " enter the first hexadecimal number :  ";
+		cin >> hex >> firsthexnumber;
+		cout << " enter the second  hexadecimal number :  ";
+		cin >> hex >> secondhexnumber;
+		cout << "there sum equal :  " << hex << firsthexnumber + secondhexnumber << '\a' << endl;
+	}
+	catch (...) {
+		cerr << "Make sure you are entering hexadecimal number " << endl;
+	}
+		break;
+
+	case 4: // adding binary number 
+		 // uncompleted
+		try {
+			string mybinary_num;
+			string mybinary_num2;
+			cout << "Please enter the first number" << endl;
+			cin >> mybinary_num;
+			int mybinary_num_int = convertToBinary(mybinary_num);
+			cout << "Please enter the second number" << endl;
+			cin >> mybinary_num2;
+			int mybinary_num2_int = convertToBinary(mybinary_num2);
+			int result = mybinary_num_int + mybinary_num2_int;
+			cout << "The result is: " << result << " in Decimal System after conversion" << '\a' << endl;
+		}
+		catch (...) {
+			cerr << "Make sure you are entering binary number " << endl;
+		}
+		break;
+	default:
+		cout << " enter 1 , 2 ,3 or  4  according to the number of the numbering system  in the previous list \n "; // massege in the error case
+	}
+}
+// the main code function 
+int main()
+{
+	while (true) {
+		system("color 7D");
+		// introduction to the user 
+		cout << "                              Programmer Calculator!!!                                     \n";
+		cout << " choose your operation\n" << "1=converstion       2=calculation\n";  //the menu which the user should choose the operation from either convertion or calculator
+
+		int operation;
+		cin >> operation;               //the user enter either 1 or 2 
+						// switch statment to manage the choice  of  the type of operation either convertion or calculation   
+		switch (operation) {
+		case 1:
+			conversion(); // conversion is function to be processed
+			break;
+		case 2:
+			calulation(); //calculation is function to be processed
+			break;
+		default:
+			cout << " please enter 1 or 2 according to your choice "; // massege in the error case
+		}
+
+	}
+	return 0;
+}
